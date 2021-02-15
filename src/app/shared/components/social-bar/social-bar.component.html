@@ -1,0 +1,11 @@
+<button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <mat-icon>mail_outline</mat-icon>
+</button>
+<button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <mat-icon>notifications_none</mat-icon>
+  <span [ngClass]="badgeCount > 99 ? 'override' : ''" class="badge mat-badge-content"
+    *ngIf="badgeCount > 0">{{badgeCount}}</span>
+</button>
+<button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <mat-icon>account_circle</mat-icon>
+</button>

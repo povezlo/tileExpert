@@ -1,0 +1,30 @@
+<!--SEARCH BLOCK-->
+<div class="search" [@fadeInLeft]="{ value: fadeInLeft, params: { timing: 0.3, delay: 0 } }">
+  <label>
+    <span class="material-icons prefix" matPrefix>search</span>
+    <input class="search-input" matInput (focus)="openedSearch = true" [(ngModel)]="value">
+  </label>
+  <button mat-button *ngIf="value" matSuffix mat-icon-button (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button mat-stroked-button color="primary">НАЙТИ</button>
+</div>
+<!--FILTER--->
+<div class="filter" *ngIf="openedSearch" [@zoomIn]="{ value: zoomIn, params: { timing: 0.2, delay: 0 } }">
+  <div class="filter-block">
+    <input type="checkbox" id="checkbox" name="мои" [(ngModel)]="myAuthorIsActive"><label for="checkbox"></label>
+    <label>мои</label><input class="filter-authorInput" matInput type="text" placeholder="Автор">
+  </div>
+  <div class="filter-select">
+    <label>Сортировать по</label>
+    <select name="role">
+      <option *ngFor="let role of sortSelected" [value]="role.value">{{role.display}}</option>
+    </select>
+  </div>
+  <div class="filter-Group">
+    <div *ngFor="let item of sortfilterCheckBox">
+      <input type="checkbox" id="{{item.id}}" name="{{item.checkbox}}" [(ngModel)]="item.isActive">
+      <label for="{{item.id}}"></label><label>{{item.checkbox}}</label>
+    </div>
+  </div>
+</div>

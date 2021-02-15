@@ -1,0 +1,58 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <div *ngFor="let list of menuList">
+        <a mat-list-item href="#">{{list}}</a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+
+      <!--FIRST LINE-->
+      <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <div class="logo"><span>T</span>ile.Expert<span class="material-icons">near_me</span></div>
+
+        <!--MENU NAVBAR--->
+        <div class="menu-navbar" (clickOutside)="closeBlock()">
+          <div *ngIf="!(isHandset$ | async)" class="menu-item">
+            <div *ngFor="let menu of menuList">
+              <button mat-button [matMenuTriggerFor]="aboveMenu">{{menu}}<mat-icon>arrow_drop_down</mat-icon></button>
+              <mat-menu #aboveMenu="matMenu" yPosition="above">
+              </mat-menu>
+            </div>
+          </div>
+          <div>
+            <button mat-icon-button class="search-icon">
+              <mat-icon (click)="openSearch()">search</mat-icon>
+            </button>
+          </div>
+          <div class="search-input" *ngIf="openedSearch">
+            <app-search-block></app-search-block>
+          </div>
+        </div>
+
+        <button *ngIf="!(isHandset$ | async)" mat-icon-button class="circle-icon">
+          <mat-icon>add_circle</mat-icon>
+        </button>
+
+        <span class="sidenav-spacer"></span>
+        <div *ngIf="!(isHandset$ | async)">
+          <app-social-bar></app-social-bar>
+        </div>
+      </mat-toolbar-row>
+
+      <!-- SECOND LINE -->
+      <mat-toolbar-row *ngIf="openedSecondBar && isHandset$ | async">
+        <app-social-bar class="social-bar"></app-social-bar>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

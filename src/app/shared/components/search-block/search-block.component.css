@@ -1,0 +1,243 @@
+.search-input {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 45px;
+  outline: none;
+  border-radius: 2px;
+  border-style: none;
+}
+.mat-stroked-button {
+  background-color: #ffc120;
+  color: white;
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  top: -1px;
+  bottom: 0;
+  right: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+.mat-icon-button {
+  color: #777777;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 3px;
+  right: 110px;
+}
+.prefix {
+  position: absolute;
+  color: #a9a9a9;
+  font-size: 26px;
+  top: 10px;
+  left: 10px;
+}
+.filter {
+  width: 70%;
+  height: 170px;
+  padding: 20px;
+  position: absolute;
+  top: 53px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.08);
+  background: white;
+}
+.filter div {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.filter-block label {
+  color: #1c1c1c;
+  font-size: 14px;
+  margin-right: 20px;
+}
+.filter-block .filter-sortLabel {
+  margin: 0;
+}
+
+.filter-block .filter-authorInput {
+  flex: 1 1 auto;
+  outline: none;
+  padding: 10px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: #c6d3da;
+}
+.filter-select select {
+  width: 36%;
+  height: 30px;
+  padding: 6px;
+  box-sizing: content-box;
+  border-radius: 3px;
+  background: #f2f2f2ff;
+  margin-left: 20px;
+  color: #1c1c1c;
+  outline: none;
+  border: 1px solid #c6d3da;
+}
+.filter-select select:hover {
+  cursor: pointer;
+}
+.filter-select label {
+  color: #1c1c1c;
+  font-size: 14px;
+}
+.filter-Group {
+  width: 90%;
+  display: flex;
+  font-size: 14px;
+  color: #1c1c1c;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.filter-Group label {
+  margin-right: 10px;
+}
+
+#checkbox,
+#checkbox1,
+#checkbox2,
+#checkbox3,
+#checkbox4 {
+  display: none;
+}
+#checkbox + label:hover,
+#checkbox1 + label:hover,
+#checkbox2 + label:hover,
+#checkbox3 + label:hover,
+#checkbox4 + label:hover {
+  cursor: pointer;
+}
+#checkbox + label,
+#checkbox1 + label,
+#checkbox2 + label,
+#checkbox3 + label,
+#checkbox4 + label {
+  display: flex;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 2px solid #c6d3da;
+  color: white;
+  border-radius: 2px;
+  text-align: center;
+}
+#checkbox + label:before,
+#checkbox1 + label:before,
+#checkbox2 + label:before,
+#checkbox3 + label:before,
+#checkbox4 + label:before {
+  position: absolute;
+  top: -6px;
+  left: 2px;
+  content: " \2714";
+  font-size: 20px;
+}
+#checkbox:checked + label,
+#checkbox1:checked + label,
+#checkbox2:checked + label,
+#checkbox3:checked + label,
+#checkbox4:checked + label {
+  background: #00c853;
+}
+#checkbox:checked + label:before,
+#checkbox1:checked + label:before,
+#checkbox2:checked + label:before,
+#checkbox3:checked + label:before,
+#checkbox4:checked + label:before {
+  color: white;
+}
+
+@media screen and (max-width: 860px) {
+  .search-input {
+    width: 100%;
+    height: 40px;
+  }
+  .mat-button,
+  .mat-stroked-button {
+    height: 40px;
+    top: -1px;
+  }
+  .prefix {
+    position: absolute;
+    color: #a9a9a9;
+    top: 6px;
+    left: 10px;
+  }
+  .filter {
+    width: 90%;
+    height: 240px;
+    top: 44px;
+  }
+  .filter div {
+    height: 120px;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .filter .filter-Group {
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 660px) and (orientation: landscape) {
+  .filter .filter-Group {
+    flex-direction: row;
+  }
+  .filter {
+    height: 150px;
+  }
+  .filter div {
+    height: auto;
+  }
+}
+@media screen and (max-width: 360px) {
+  .filter {
+    width: 86%;
+  }
+  .mat-button,
+  .mat-stroked-button {
+    width: 50px;
+    height: 40px;
+    top: -1px;
+    padding: 3px;
+  }
+  .filter div {
+    height: 140px;
+  }
+  .filter-Group {
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+  }
+  .filter-block {
+    flex-wrap: wrap-reverse;
+  }
+  .mat-icon-button {
+    right: 60px;
+    top: -3px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .mat-button,
+  .mat-stroked-button {
+    width: 50px;
+    height: 40px;
+    top: -1px;
+    padding: 3px;
+  }
+
+  .mat-icon-button {
+    right: 60px;
+    top: -3px;
+  }
+}
