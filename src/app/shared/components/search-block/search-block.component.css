@@ -51,6 +51,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: 20px;
 }
 .filter-block label {
   color: #1c1c1c;
@@ -70,9 +71,10 @@
   border-color: #c6d3da;
 }
 .filter-select select {
-  width: 36%;
+  width: 130px;
   height: 30px;
-  padding: 6px;
+  position: relative;
+  padding: 6px 15px;
   box-sizing: content-box;
   border-radius: 3px;
   background: #f2f2f2ff;
@@ -80,21 +82,34 @@
   color: #1c1c1c;
   outline: none;
   border: 1px solid #c6d3da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
+
 .filter-select select:hover {
   cursor: pointer;
 }
 .filter-select label {
+  position: relative;
   color: #1c1c1c;
   font-size: 14px;
 }
+.filter-select label::after {
+   position: absolute;
+   left: 265px;
+   font-size: 10px;
+   color: #484848;
+   content: "\25BC";
+  z-index: 1000;
+ }
 .filter-Group {
   width: 90%;
   display: flex;
   font-size: 14px;
   color: #1c1c1c;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
 }
 .filter-Group label {
@@ -199,6 +214,9 @@
   .filter div {
     height: auto;
   }
+  .filter-Group label {
+    margin-right: 5px;
+  }
 }
 @media screen and (max-width: 360px) {
   .filter {
@@ -226,6 +244,12 @@
     right: 60px;
     top: -3px;
   }
+  .filter-select select {
+    width: 100px;
+  }
+  .filter-select label::after {
+    left: 235px;
+  }
 }
 @media screen and (max-width: 321px) {
   .mat-button,
@@ -239,5 +263,11 @@
   .mat-icon-button {
     right: 60px;
     top: -3px;
+  }
+  .filter-select select {
+    width: 80px;
+  }
+  .filter-select label::after {
+    left: 220px;
   }
 }
